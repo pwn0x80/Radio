@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100mm" height="100mm" version="1.1" viewBox="0 0 100 100" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <linearGradient id="linearGradient2635" x1="55.023" x2="281.57" y1="121.05" y2="63.332" gradientTransform="matrix(1 0 0 1 .60039 2.9985)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#99a799" offset="0" />
+      <stop stop-color="#99a799" stop-opacity="0" offset="1" />
+    </linearGradient>
+    <linearGradient id="linearGradient30897" x1="57.315" x2="153.38" y1="127.01" y2="127.01" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#000000" offset="0" />
+    </linearGradient>
+  </defs>
+  <g>
+    <g transform="translate(-54.84 -79.697)">
+      <g>
+        <ellipse cx="105.35" cy="127.01" rx="43.565" ry="42.323" fill="url(#linearGradient2635)" opacity=".75" stroke="url(#linearGradient30897)" />
+        <path d="m93.4 165.09c-18.254-0.27836-34.434-17.564-34.815-39.231-0.38146-21.666 16.109-39.85 34.337-41.034 0 0-56.535 44.492 0.47861 80.264z" fill="#95a395" fill-opacity=".16634" stroke-opacity="0" style="mix-blend-mode:darken" />
+      </g>
+      <g class="play" transform="translate(2.1677 1.9776)">
+        <path d="m131.54 125.16-40.918 20.002 0.15364-21.352 6e-3 -18.631z" color="#000000" fill="#d9e8d1" stroke-width=".11602" style="-inkscape-stroke:none" />
+      </g>
+      <g class="pause" transform="matrix(.86871 0 0 .96266 71.576 -42.424)" fill="#d9e8d1" stroke-width=".26458">
+        <rect x="17.914" y="166.74" width="44.174" height="7.0807" opacity=".75" />
+        <rect x="17.962" y="178.61" width="44.174" height="7.0807" opacity=".75" />
+      </g>
+    </g>
+  </g>
+</svg>
