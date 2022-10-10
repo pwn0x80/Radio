@@ -31,8 +31,9 @@ const ContentBox = () => {
 
     try {
       (async () => {
+        let genresSelectfilter = genresSelect.replace('#', '')
         let limit = 10
-        let url = baseUrl + "/json/stations/byname/" + genresSelect + `?limit=${limit}&offset=${offsetState}`
+        let url = baseUrl + "/json/stations/byname/" + genresSelectfilter + `?limit=${limit}&offset=${offsetState}`
         let data = await fetch(url)
         let radioList = await data.json()
         setRadioTrack(e => [...e, ...radioList]);
