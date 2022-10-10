@@ -12,9 +12,9 @@ import {
   radioBaseUrlUpdateSuccess,
   updateStart
 } from "../../redux/radioSlice";
+import { useInfiniteScroller } from "@pwn0x80/react-infinite-scroller";
 
 // https://www.npmjs.com/package/@pwn0x80/react-infinite-scroller
-import { useInfiniteScroller } from "@pwn0x80/react-infinite-scroller";
 let fetchFlowGenres
 export const GenresList = ({ toggle }) => {
   const { scrollFetch, setScrollFetch, InfiniteScroll } = useInfiniteScroller()

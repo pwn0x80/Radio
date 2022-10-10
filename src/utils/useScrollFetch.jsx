@@ -1,4 +1,5 @@
 import React, { useCallback, useRef, useState } from "react";
+
 let useInfiniteScroller = () => {
   const [scrollFetch, setScrollFetch] = useState(true)
   let observerRef = useRef();
@@ -7,18 +8,22 @@ let useInfiniteScroller = () => {
     observerRef.current = new IntersectionObserver(entries => {
       if (entries[0]?.isIntersecting) {
         setScrollFetch((boolVal) => !boolVal)
+
       }
     })
     if (node) observerRef.current.observe(node)
   }, [])
-  let Rendering = ({ children }) => {
+  let InfiniteScroll = useCallback(({ len, children }) => {
     return React.Children.map(children, child => {
-      return React.cloneElement(child, { ref: callbackRef })
+      if (children.key == len - 3 || len == undefined) {
+        return React.cloneElement(child, { ref: callbackRef })
+      } else {
+        return React.cloneElement(child, {})
+      }
     })
-
-  }
+  }, [])
   return {
-    callbackRef, scrollFetch, setScrollFetch, Rendering
+    callbackRef, scrollFetch, setScrollFetch, InfiniteScroll
   }
 }
 export default useInfiniteScroller
