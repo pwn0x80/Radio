@@ -6,7 +6,7 @@ export const radioSlice = createSlice({
     audio: {
       name: null,
       trackName: null,
-      baseUrl: "",
+      baseUrl: null,
       converPic: "",
       uuid: null,
       genres: null,

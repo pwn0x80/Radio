@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import musicGif from '../../assets/gif/musicGif.gif'
 import Controller from '../../components/controller/Controller';
-import ContentBox from "../../components/contentBox/ContentBox"
+import ContentBox from "../../page/contentBox/ContentBox"
 import {
 
   Wrapper,
@@ -11,7 +11,8 @@ import {
 } from '../Home/Home.style.jsx'
 import { useGreeting } from "../../utils/useGreeting"
 import { useSelector } from "react-redux";
-
+import HomeContentBox from "../HomeContentBox/HomeContentBox";
+import useController from "../../utils/useAudioController";
 const Home = () => {
 
   const genresSelect = useSelector(state => state.radio.audio.genres)
@@ -20,33 +21,15 @@ const Home = () => {
   const nameSelect = useSelector(state => state.radio.audio.name)
   const [status, setStatus] = useState(0)
   const { wish } = useGreeting()
-
-  useEffect(() => {
-    let t = document.getElementById('player')
-    t.addEventListener('loadstart', function() {
-      setStatus(1)
-    });
-    t.addEventListener('loadeddata', function(e) {
-      if (e.target.readyState > 2) {
-        setStatus(0)
-      }
-      // } else {
-      //   setStatus(0)
-      // }
-    });
-  }, [trackname])
-
+  let controllerStatus = useController().currentAudioStatus
   return (
     < Wrapper >
       <TextWrapper>
-        {/* // TODO HOC pattern */}
-        {status == 1 ? "loading..." : status == 3 ? "not support" : trackname == undefined ? (" (≧◡≦)" + wish) : ("-" + trackname)}
-
+        {controllerStatus.success == true ? trackname : controllerStatus.error == true ? "cant play this song" : controllerStatus.pending == true ? "loading..." : wish}
         <SmallTextWrapper>
           {genresSelect}
         </SmallTextWrapper>
       </TextWrapper>
-      {/* // TODO seprate this image - affect re-rendering */}
       < ImgWrapper >
         <img src={musicGif} />
       </ImgWrapper >
@@ -54,7 +37,7 @@ const Home = () => {
       <audio loop id="player" src={currentPlayUrl} >
       </audio>
       {
-        nameSelect == "radio" ? <ContentBox /> : "no data"
+        nameSelect == "radio" ? <ContentBox /> : <HomeContentBox />
       }
     </Wrapper >
   )
