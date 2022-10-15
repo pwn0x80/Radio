@@ -8,10 +8,16 @@ padding-block:0.4rem;
 `;
 
 const MainContentWrapper = styled.div`
-@media screen and (max-width: 800px) {
-    height: clamp(23vh, 42vh, 85%);
+@media screen and (max-width: 540px) {
+    /* height: calc(100vw - 900px); */
+
   }
-    height: clamp(13vh, 30vh, 85%);
+@media screen and (max-height: 700px) {
+height: calc(91vw - 188px);
+}
+
+    height: calc(35vh);
+  
     overflow-y: auto;
     border-radius: 10px;
     box-shadow: 1px 1px 1px 1px #99a799;
@@ -22,7 +28,9 @@ const MainContentWrapper = styled.div`
     color: white;
     width:min(70%,500px);
     margin: auto;
-    padding:10px;
+    padding:10px;
+    margin-buttom:50px;
+    margin-bottom: calc(11px + 12vh);
 
 `;
 

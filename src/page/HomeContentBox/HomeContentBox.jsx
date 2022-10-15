@@ -86,9 +86,7 @@ const HomeContentBox = () => {
 
   return (
     <MainWrapper>
-      <MainContentWrapper style={{
-        height: '300px', overflowY: 'auto'
-      }}>
+      <MainContentWrapper >
         Tending List
         {
           trending.map((e, keys) => {
