@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useEffect, useReducer, useState } from 'react';
 import { Wrapper, BookmarkSvg, BookMarkSvg, HeadphoneGlobe, BottomText, BottomBoxWrapper } from "./BottomBar.styles.js"
 import { GenresList } from '../../page/Genres/GenresList.jsx';
 import { useDispatch, useSelector } from 'react-redux';
@@ -12,10 +12,12 @@ import {
 
 } from "../../redux/radioSlice";
 import BookMarklist from '../../page/Bookmarklist/BookMarklist.jsx';
+import SearchBar from '../../page/SearchBar/SearchBar.jsx';
 const BookMarkBtn = () => {
   let [bookmark, setBookmark] = useState(null);
   return (
     <>
+
       <BookmarkSvg bookmarkanimate={bookmark} onClick={() => setBookmark
         (
           a => {
@@ -54,15 +56,20 @@ const BookmarkBtn = () => {
 }
 
 
+
+
+
 const Topbar = () => {
 
   let [searchBox, setSeachBox] = useState(false);
   let [bookmarkBox, setbookmarkBox] = useState(false);
   let [listBox, setListBox] = useState(false);
+  let [caseSwitch, setCaseSwitch] = useState(0)
   return (
     <>
+
       <Wrapper>
-        <BottomBoxWrapper onClick={e => { setbookmarkBox(false); setListBox(false); setSeachBox(true) }}>
+        <BottomBoxWrapper onClick={e => { setbookmarkBox(false); setListBox(false); setSeachBox(!searchBox) }}>
           <BookMarkBtn />
         </BottomBoxWrapper >
         <BottomBoxWrapper onClick={(e) => { setListBox(!listBox); setbookmarkBox(false); setSeachBox(false) }} >
@@ -76,7 +83,7 @@ const Topbar = () => {
           <BookmarkBtn />
         </BottomBoxWrapper >
       </Wrapper>
-      {listBox ? < GenresList toggle={setListBox} /> : bookmarkBox ? <BookMarklist /> : searchBox ? "coming soon" : ""}
+      {listBox ? < GenresList toggle={setListBox} /> : bookmarkBox ? <BookMarklist /> : searchBox ? <SearchBar /> : ""}
 
     </>
   )
