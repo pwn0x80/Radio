@@ -15,7 +15,7 @@ function App() {
       dispatch(updateStart())
       urlUpdate(dispatch)
       // genres fetch names
-      let data = await fetch('https://radio-api34.herokuapp.com');
+      let data = await fetch(process.env.REACT_APP_API_BASE_URL);
       data = await data.json()
       // set data to observer
       Subject.setState(data)
